@@ -1,0 +1,17 @@
+{
+  "name": "fi1a/bitrix-d7-module-installer-demo",
+  "type": "bitrix-d7-module",
+  "description": "Демонстрация возможностей установки и обновления пакетов с типом bitrix-d7-module",
+  "keywords": [],
+  "homepage": "https://github.com/fi1a/bitrix-d7-module-installer-demo",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Fi1a",
+      "email": "fi1a@icloud.com"
+    }
+  ],
+  "require": {
+    "php": "^7.3 || ^8"
+  }
+}
