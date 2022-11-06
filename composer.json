@@ -39,6 +39,8 @@
     "pre-commit": [
       "@fl:lint",
       "@fl:psalm"
+    ],
+    "pre-push": [
     ]
   },
   "scripts-descriptions": {
