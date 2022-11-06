@@ -3,7 +3,7 @@
 /**
  * Инсталятор модуля
  */
-class fi1a_bitrix_d7_module_installer_demo extends CModule
+class fi1a_bitrixd7moduleinstallerdemo extends CModule
 {
     var $MODULE_ID = 'fi1a.bitrix-d7-module-installer-demo';
 
