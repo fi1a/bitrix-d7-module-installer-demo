@@ -15,9 +15,9 @@
     "php": "^7.3 || ^8",
     "fi1a/installers": "dev-main"
   },
-  "extra": {
-    "installer-paths": {
-      "modules/{$vendor}.{$name}/": ["type:bitrix-d7-module"]
+  "config": {
+    "allow-plugins": {
+      "fi1a/installers": true
     }
   }
 }
