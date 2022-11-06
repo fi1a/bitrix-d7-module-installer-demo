@@ -30,8 +30,6 @@ class Fi1aBitrixd7moduleinstallerdemo extends AbstractLibrary
      */
     public function install(): bool
     {
-        $this->output->writeln('<success>Install fi1a/bitrix-d7-module-installer-demo success</success>');
-
         return true;
     }
 
@@ -40,8 +38,6 @@ class Fi1aBitrixd7moduleinstallerdemo extends AbstractLibrary
      */
     public function uninstall(): bool
     {
-        $this->output->writeln('<success>Uninstall fi1a/bitrix-d7-module-installer-demo success</success>');
-
         return true;
     }
 }
