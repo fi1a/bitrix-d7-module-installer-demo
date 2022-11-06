@@ -3,15 +3,17 @@
 /**
  * Инсталятор модуля
  */
-class fi1a_bitrixd7moduleinstallerdemo extends CModule
+class fi1a_bitrix_d7_module_installer_demo extends CModule
 {
-    var $MODULE_ID = 'fi1a.bitrixd7moduleinstallerdemo';
+    var $MODULE_ID = 'fi1a.bitrix-d7-module-installer-demo';
 
     /**
      * Установка
      */
     public function DoInstall()
     {
+        echo 'Module->DoInstall';
+
         return true;
     }
 
@@ -20,6 +22,8 @@ class fi1a_bitrixd7moduleinstallerdemo extends CModule
      */
     public function DoUninstall()
     {
+        echo 'Module->DoUninstall';
+
         return true;
     }
 }
