@@ -1,5 +1,7 @@
 <?php
 
+use Bitrix\Main\ModuleManager;
+
 /**
  * Инсталятор модуля
  */
@@ -15,6 +17,7 @@ class fi1a_bitrixd7moduleinstallerdemo extends CModule
      */
     public function DoInstall()
     {
+        ModuleManager::registerModule($this->MODULE_ID);
         echo 'Module->DoInstall';
 
         return true;
@@ -25,6 +28,7 @@ class fi1a_bitrixd7moduleinstallerdemo extends CModule
      */
     public function DoUninstall()
     {
+        ModuleManager::unRegisterModule($this->MODULE_ID);
         echo 'Module->DoUninstall';
 
         return true;
