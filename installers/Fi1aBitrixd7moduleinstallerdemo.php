@@ -7,7 +7,7 @@ namespace Fi1a\Installers;
 /**
  * Библиотека
  */
-class Fi1aBitrixD7ModuleInstallerDemo extends AbstractLibrary
+class Fi1aBitrixd7moduleinstallerdemo extends AbstractLibrary
 {
     /**
      * @inheritDoc
