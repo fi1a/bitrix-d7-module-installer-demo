@@ -85,7 +85,7 @@ class Fi1aBitrixd7moduleinstallerdemo extends AbstractLibrary
      */
     private function includeBitrix(): void
     {
-        $_SERVER['DOCUMENT_ROOT'] = realpath(__DIR__ . '/../../..');
+        $_SERVER['DOCUMENT_ROOT'] = realpath(__DIR__ . '/../../../..');
 
         defined('NO_KEEP_STATISTIC') || define('NO_KEEP_STATISTIC', true);
         defined('NOT_CHECK_PERMISSIONS') || define('NOT_CHECK_PERMISSIONS', true);
