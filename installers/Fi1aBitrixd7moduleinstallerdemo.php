@@ -51,6 +51,7 @@ class Fi1aBitrixd7moduleinstallerdemo extends AbstractLibrary
      */
     public function getCurrentVersion(): VersionInterface
     {
+        $this->includeBitrix();
         [$major, $minor, $build] = explode(
             '.',
             (string) Option::get(static::MODULE_ID, 'version', '1.0.0')
@@ -64,6 +65,7 @@ class Fi1aBitrixd7moduleinstallerdemo extends AbstractLibrary
      */
     public function getUpdateVersion(): VersionInterface
     {
+        $this->includeBitrix();
         /**
          * @var \fi1a_bitrixd7moduleinstallerdemo $module
          */
@@ -76,5 +78,23 @@ class Fi1aBitrixd7moduleinstallerdemo extends AbstractLibrary
         // @codingStandardsIgnoreEnd
 
         return new Version((int) $major, (int) $minor, (int) $build);
+    }
+
+    /**
+     * Подключить битрикс
+     */
+    private function includeBitrix(): void
+    {
+        $_SERVER['DOCUMENT_ROOT'] = realpath(__DIR__ . '/../..');
+
+        defined('NO_KEEP_STATISTIC') || define('NO_KEEP_STATISTIC', true);
+        defined('NOT_CHECK_PERMISSIONS') || define('NOT_CHECK_PERMISSIONS', true);
+        defined('BX_WITH_ON_AFTER_EPILOG') || define('BX_WITH_ON_AFTER_EPILOG', true);
+        defined('BX_NO_ACCELERATOR_RESET') || define('BX_NO_ACCELERATOR_RESET', true);
+
+        /**
+         * @psalm-suppress UnresolvableInclude
+         */
+        require_once $_SERVER['DOCUMENT_ROOT'] . '/bitrix/modules/main/include/prolog_before.php';
     }
 }
