@@ -6,6 +6,9 @@ namespace Fi1a\Installers;
 
 use Bitrix\Main\Config\Option;
 use CModule;
+use ErrorException;
+use Fi1a\Console\IO\InputInterface;
+use Fi1a\Console\IO\OutputInterface;
 
 /**
  * Библиотека
@@ -13,6 +16,15 @@ use CModule;
 class Fi1aBitrixd7moduleinstallerdemo extends AbstractLibrary
 {
     public const MODULE_ID = 'fi1a.bitrixd7moduleinstallerdemo';
+
+    /**
+     * @inheritDoc
+     */
+    public function __construct(OutputInterface $output, InputInterface $stream)
+    {
+        parent::__construct($output, $stream);
+        $this->includeBitrix();
+    }
 
     /**
      * @inheritDoc
@@ -49,12 +61,30 @@ class Fi1aBitrixd7moduleinstallerdemo extends AbstractLibrary
     /**
      * @inheritDoc
      */
+    public function update(): bool
+    {
+        /**
+         * @var \fi1a_bitrixd7moduleinstallerdemo|false $module
+         * @psalm-suppress UnusedVariable
+         */
+        $module = CModule::CreateModuleObject(self::MODULE_ID);
+        if ($module) {
+            // @codingStandardsIgnoreStart
+            Option::set(self::MODULE_ID, 'version', (string) $module->MODULE_VERSION);
+            // @codingStandardsIgnoreEnd
+        }
+
+        return true;
+    }
+
+    /**
+     * @inheritDoc
+     */
     public function getCurrentVersion(): VersionInterface
     {
-        $this->includeBitrix();
         [$major, $minor, $build] = explode(
             '.',
-            (string) Option::get(static::MODULE_ID, 'version', '1.0.0')
+            (string) Option::get(self::MODULE_ID, 'version', '1.0.0')
         );
 
         return new Version((int) $major, (int) $minor, (int) $build);
@@ -65,11 +95,13 @@ class Fi1aBitrixd7moduleinstallerdemo extends AbstractLibrary
      */
     public function getUpdateVersion(): VersionInterface
     {
-        $this->includeBitrix();
         /**
-         * @var \fi1a_bitrixd7moduleinstallerdemo $module
+         * @var \fi1a_bitrixd7moduleinstallerdemo|false $module
          */
-        $module = CModule::CreateModuleObject(static::MODULE_ID);
+        $module = CModule::CreateModuleObject(self::MODULE_ID);
+        if (!$module) {
+            throw new ErrorException(sprintf('Модуль "%s" не найден', self::MODULE_ID));
+        }
         // @codingStandardsIgnoreStart
         [$major, $minor, $build] = explode(
             '.',
