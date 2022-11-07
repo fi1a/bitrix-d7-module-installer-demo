@@ -1,5 +1,6 @@
 <?php
 
+use Bitrix\Main\Config\Option;
 use Bitrix\Main\ModuleManager;
 
 /**
@@ -17,6 +18,7 @@ class fi1a_bitrixd7moduleinstallerdemo extends CModule
      */
     public function DoInstall()
     {
+        Option::set($this->MODULE_ID, 'version', $this->MODULE_VERSION);
         ModuleManager::registerModule($this->MODULE_ID);
         echo 'Module->DoInstall';
 
@@ -28,6 +30,7 @@ class fi1a_bitrixd7moduleinstallerdemo extends CModule
      */
     public function DoUninstall()
     {
+        Option::delete($this->MODULE_ID, ['name' => 'version']);
         ModuleManager::unRegisterModule($this->MODULE_ID);
         echo 'Module->DoUninstall';
 
