@@ -50,7 +50,7 @@ class Library extends AbstractLibrary
      */
     public function install(): bool
     {
-        $this->output->writeln('<notice>Fi1aBitrixd7moduleinstallerdemo->install</notice>');
+        $this->output->writeln('<notice>Library->install</notice>');
 
         return true;
     }
@@ -60,7 +60,7 @@ class Library extends AbstractLibrary
      */
     public function uninstall(): bool
     {
-        $this->output->writeln('<notice>Fi1aBitrixd7moduleinstallerdemo->uninstall</notice>');
+        $this->output->writeln('<notice>Library->uninstall</notice>');
 
         return true;
     }
@@ -70,7 +70,7 @@ class Library extends AbstractLibrary
      */
     public function update(): bool
     {
-        $this->output->writeln('<notice>Fi1aBitrixd7moduleinstallerdemo->update</notice>');
+        $this->output->writeln('<notice>Library->update</notice>');
 
         /**
          * @var \fi1a_bitrixd7moduleinstallerdemo|false $module
