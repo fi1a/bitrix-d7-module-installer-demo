@@ -2,18 +2,21 @@
 
 declare(strict_types=1);
 
-namespace Fi1a\Installers;
+namespace Fi1a\Installers\Fi1aBitrixd7moduleinstallerdemo;
 
 use Bitrix\Main\Config\Option;
 use CModule;
 use ErrorException;
 use Fi1a\Console\IO\InputInterface;
 use Fi1a\Console\IO\OutputInterface;
+use Fi1a\Installers\AbstractLibrary;
+use Fi1a\Installers\Version;
+use Fi1a\Installers\VersionInterface;
 
 /**
  * Библиотека
  */
-class Fi1aBitrixd7moduleinstallerdemo extends AbstractLibrary
+class Library extends AbstractLibrary
 {
     public const MODULE_ID = 'fi1a.bitrixd7moduleinstallerdemo';
 
@@ -47,6 +50,8 @@ class Fi1aBitrixd7moduleinstallerdemo extends AbstractLibrary
      */
     public function install(): bool
     {
+        $this->output->writeln('<notice>Fi1aBitrixd7moduleinstallerdemo->install</notice>');
+
         return true;
     }
 
@@ -55,6 +60,8 @@ class Fi1aBitrixd7moduleinstallerdemo extends AbstractLibrary
      */
     public function uninstall(): bool
     {
+        $this->output->writeln('<notice>Fi1aBitrixd7moduleinstallerdemo->uninstall</notice>');
+
         return true;
     }
 
@@ -63,6 +70,8 @@ class Fi1aBitrixd7moduleinstallerdemo extends AbstractLibrary
      */
     public function update(): bool
     {
+        $this->output->writeln('<notice>Fi1aBitrixd7moduleinstallerdemo->update</notice>');
+
         /**
          * @var \fi1a_bitrixd7moduleinstallerdemo|false $module
          * @psalm-suppress UnusedVariable
