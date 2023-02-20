@@ -29,8 +29,8 @@
     }
   },
   "scripts": {
-    "fl:lint": "phpcs --cache=build/cache/phpcs.cache",
-    "fl:phpcbf": "phpcbf --cache=build/cache/phpcbf.cache",
+    "fl:lint": "phpcs --cache=runtime/cache/phpcs.cache",
+    "fl:phpcbf": "phpcbf --cache=runtime/cache/phpcbf.cache",
     "fl:psalm": "psalm",
     "fl:check": [
       "@fl:lint",
